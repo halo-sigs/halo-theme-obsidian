@@ -35,11 +35,13 @@
             <b class="iconfont icon-read"></b> <i>阅读次数</i>
             <span id="busuanzi_value_page_pv" th:text="${post.stats.visit}"></span>
           </span>
-          <!-- 是否加 -->
-          <!-- <span id="busuanzi_container_page_pv" style="display: flex">
-            <b class="iconfont icon-read"></b> <i>评论数</i>
+          <span id="busuanzi_container_page_pv" style="display: flex">
+            <b>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M7 14h10q.425 0 .713-.288T18 13q0-.425-.288-.713T17 12H7q-.425 0-.713.288T6 13q0 .425.288.713T7 14Zm0-3h10q.425 0 .713-.288T18 10q0-.425-.288-.713T17 9H7q-.425 0-.713.288T6 10q0 .425.288.713T7 11Zm0-3h10q.425 0 .713-.288T18 7q0-.425-.288-.713T17 6H7q-.425 0-.713.288T6 7q0 .425.288.713T7 8ZM4 18q-.825 0-1.413-.588T2 16V4q0-.825.588-1.413T4 2h16q.825 0 1.413.588T22 4v15.575q0 .675-.613.938T20.3 20.3L18 18H4Zm0-2h16V4H4v12Zm0 0V4v12Z"/></svg>
+            </b>
+             <i>评论数</i>
             <span id="busuanzi_value_page_pv" th:text="${post.stats.comment}"></span>
-          </span> -->
+          </span>
         </p>
         <ul class="animated fadeInDown post-tags-list" itemprop="keywords">
           <li class="animated fadeInDown post-tags-list-item" th:each="tag : ${post.tags}">
@@ -71,6 +73,8 @@
     <div class="main">
       <div class="content markdown animated fadeIn">
         <div th:utext="${post.content.content}" id="content"> </div>
+        <halo:comment group="content.halo.run" kind="Post" th:attr="name=${post.metadata.name}" colorScheme="'light'" />
+
       </div>
       <div class="sidebar">
         <div class="box animated fadeInRight">

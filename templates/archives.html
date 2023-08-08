@@ -16,7 +16,7 @@
               <div class="set">
                 <!-- 自定义文章名字 -->
                 <h1 style="text-align: center">Archived</h1>
-                <p style="text-align: center">「 32 」</p>
+                <p style="text-align: center">「 <th:block th:text="${archives.total}"></th:block> 」</p>
                 <ul class="timeline timeline-centered">
                   <th:block th:each="archive : ${archives.items}">
                     <th:block th:each="month : ${archive.months}">

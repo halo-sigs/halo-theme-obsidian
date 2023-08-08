@@ -1,18 +1,3 @@
-/**
- * Hexo-obsidian-theme
- * @author Guo Xiang - @TriDiamond
- * @description Use for hexo obsidian theme
- */
-//JSHint ingores
-/* jshint -W093 */
-/* jshint -W030 */
-/* jshint -W119 */
-
-/**
- * Watch the TOC during scroll and fill in active status
- * @param {} menuSelector
- * @param {*} options
- */
 function scrollSpy(menuSelector, options) {
   var menu = $(menuSelector);
   if (!menu) return;
@@ -166,13 +151,11 @@ var Obsidian = {
   HS: function (tag, flag) {
     var id = tag.data("id") || 0,
       url = tag.attr("href"),
-      title = (tag.attr("title") || tag[0].innerText) + " - " + $("#config-title").text();
-
+      title = "文章详情页";
     if (!$("#preview").length || !(window.history && history.pushState)) location.href = url;
     Obsidian.loading();
     var state = {
       d: id,
-      t: title,
       u: url,
     };
     Obsidian.L(url, function (data) {
@@ -1226,18 +1209,18 @@ $(function () {
         });
         $(".category-mask").fadeOut(500);
         return false;
-      case tag.indexOf("search-bar") != -1 || tag.indexOf("search-box-close") != -1:
-        var searchBox = $(".search-box"),
-          searchBoxDisplay = $(".search-box").css("display");
+      // case tag.indexOf("search-bar") != -1 || tag.indexOf("search-box-close") != -1:
+      //   var searchBox = $(".search-box"),
+      //     searchBoxDisplay = $(".search-box").css("display");
 
-        if (searchBoxDisplay != "block") {
-          $("body").addClass("fixed");
-          searchBox.fadeIn(400);
-        } else {
-          $("body").removeClass("fixed");
-          searchBox.fadeOut(400);
-        }
-        return false;
+      //   if (searchBoxDisplay != "block") {
+      //     $("body").addClass("fixed");
+      //     searchBox.fadeIn(400);
+      //   } else {
+      //     $("body").removeClass("fixed");
+      //     searchBox.fadeOut(400);
+      //   }
+      //   return false;
       default:
         return true;
     }
@@ -1252,9 +1235,6 @@ $(function () {
   // Watch window history changes
   window.onpopstate = function (event) {
     utiliseBgColor();
-    if ($(".search-box").css("display") == "block") {
-      $("body").addClass("fixed");
-    }
   };
 
   utiliseBgColor();
@@ -1263,6 +1243,6 @@ $(function () {
     "%c Github %c",
     "background:#24272A; color:#73ddd7",
     "",
-    "https://github.com/TriDiamond/hexo-theme-obsidian"
+    "https://github.com/halo-sigs/halo-theme-obsidian"
   );
 });

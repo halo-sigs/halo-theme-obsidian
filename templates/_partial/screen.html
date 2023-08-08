@@ -17,7 +17,16 @@
         >
         </a>
       </li>
-      <li class="animated fadeInDown search-bar iconfont icon-search"></li>
+      <li
+        class="animated fadeInDown search-bar iconfont icon-search"
+        th:if="${pluginFinder.available('PluginSearchWidget')}"
+      >
+        <a
+          href="javascript:SearchWidget.open()"
+          title="搜索"
+          style="display: inline-block; height: 100%; width: 100%"
+        ></a>
+      </li>
     </ul>
     <div class="iconfont icon-menu switchmenu gradient-text animated fadeInDown"></div>
   </div>

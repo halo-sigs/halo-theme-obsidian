@@ -10,17 +10,10 @@
       <div id="primary">
         <th:block th:replace="~{_partial/list :: list(posts = ${posts.items})}"></th:block>
       </div>
-      <!-- <% if (page.total > 1 && page.next_link){ %>
-      <div id="pager">
-        <a
-          href="<%- url_for(page.next_link) %>"
-          class="more"
-          data-loading="<%= __('loading') %>"
-          data-load-more="<%= __('load_more') %>"
-          ><%= __('load_more') %></a
-        >
+
+      <div id="pager" th:if="${posts.hasNext}">
+        <a th:href="${posts.nextUrl}" class="more" data-loading="加载中" data-load-more="加载更多">加载更多</a>
       </div>
-      <% } %> -->
     </div>
     <div id="preview"></div>
   </th:block>

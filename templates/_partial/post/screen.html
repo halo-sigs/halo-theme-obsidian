@@ -3,7 +3,7 @@
     <div class="logo animated fadeInDown">
       <img th:src="${site.logo}" alt="" />
       <!-- 换成什么南 -->
-      <!-- <a class="image-logo" href="/"></a> -->
+      <a class="image-logo" href="/" th:text="${site.title}"></a>
     </div>
     <ul id="menu-menu" class="menu text-menu" th:with="menuItems = ${menu.menuItems}">
       <li
