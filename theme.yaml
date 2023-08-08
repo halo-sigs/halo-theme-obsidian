@@ -9,8 +9,8 @@ spec:
     website: https://halo.run
   description: 🎨 A dark Halo theme, it's responsive, simple but elegant.
   logo: https://camo.githubusercontent.com/15d15a9ad93b358fd69dea8882034351481bd9b5700ae11b16db3ee91116d2b4/68747470733a2f2f696d672d626c6f672e6373646e696d672e636e2f32303230303933303031333333323435302e706e67
-  website: https://github.com/halo-dev/theme-vite-starter
-  repo: https://github.com/halo-dev/theme-vite-starter.git
+  website: https://github.com/halo-sigs/halo-theme-obsidian
+  repo: https://github.com/halo-sigs/halo-theme-obsidian
   settingName: "halo-theme-obsidian-setting"
   configMapName: "halo-theme-obsidian-configMap"
   customTemplates:

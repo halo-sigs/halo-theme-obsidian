@@ -1,8 +1,8 @@
 {
-  "name": "@halo-dev/theme-vite-starter",
+  "name": "@halo-sigs/halo-theme-obsidian",
   "private": true,
   "version": "0.0.0",
-  "description": "A development starter theme with Vite Ecosystem for Halo",
+  "description": "🎨 A dark Halo theme, it's responsive, simple but elegant.",
   "scripts": {
     "dev": "vite build --watch",
     "build": "tsc && vite build",
@@ -13,13 +13,13 @@
     "halo",
     "halo-theme"
   ],
-  "homepage": "https://github.com/halo-dev/theme-vite-starter#readme",
+  "homepage": "https://github.com/halo-sigs/halo-theme-obsidian/blob/master/README.md",
   "bugs": {
-    "url": "https://github.com/halo-dev/theme-vite-starter/issues"
+    "url": "https://github.com/halo-sigs/halo-theme-obsidian/issues"
   },
   "author": {
     "name": "Halo OSS Organization",
-    "url": "https://github.com/halo-dev",
+    "url": "https://github.com/halo-sigs",
     "email": "hi@halo.run"
   },
   "maintainers": [
@@ -31,7 +31,7 @@
   ],
   "license": "GPL-3.0",
   "repository": {
-    "url": "https://github.com/halo-dev/theme-vite-starter",
+    "url": "https://github.com/halo-sigs/halo-theme-obsidian",
     "type": "git"
   },
   "devDependencies": {
