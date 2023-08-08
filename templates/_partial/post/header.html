@@ -1,0 +1,18 @@
+<div class="scrollbar gradient-bg-rev"></div>
+<div id="top" style="display: block">
+  <div class="bar" style="width: 0"></div>
+  <div class="navigation animated fadeIn fast delay-1s">
+    <img id="home-icon" class="icon-home" th:src="${site.logo}" alt="" data-url="/" />
+    <h3 class="subtitle" th:text="${site.title}"></h3>
+    <!-- <div class="social">
+      <div>
+        <div class="share">
+          <% if (theme.sharejs && theme.sharejs.enable == true) { %>
+          <a href="javascript:;" class="iconfont icon-share1"></a>
+          <div class="share-component-cc" data-disabled="<%= theme.sharejs.disabled || '' %>"></div>
+          <% } %>
+        </div>
+      </div>
+    </div> -->
+  </div>
+</div>

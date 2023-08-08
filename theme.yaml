@@ -1,0 +1,17 @@
+apiVersion: theme.halo.run/v1alpha1
+kind: Theme
+metadata:
+  name: halo-theme-obsidian
+spec:
+  displayName: halo-theme-obsidian
+  author:
+    name: Hilaru Liu
+    website: https://halo.run
+  description: A theme with Vite Ecosystem for Halo
+  logo: https://halo.run/logo
+  website: https://github.com/halo-dev/theme-vite-starter
+  repo: https://github.com/halo-dev/theme-vite-starter.git
+  settingName: "halo-theme-obsidian-setting"
+  configMapName: "theme-vite-starter-configMap"
+  version: 1.0.0
+  require: 2.0.0

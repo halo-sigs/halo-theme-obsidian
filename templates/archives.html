@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{layout :: html(title = '归档 - ' + ${site.title}, content = ~{::content}, head = null)}"
+>
+  <th:block th:fragment="content">
+    <div id="single" class="page">
+      <div id="top">
+        <a class="iconfont icon-left image-icon" href="javascript:history.back()"></a>
+      </div>
+      <div class="clone-element"></div>
+      <div class="section dark-obsidian">
+        <div class="article animated fadeIn">
+          <div class="main animated fadeIn">
+            <div class="content animated fadeIn">
+              <div class="set">
+                <!-- 自定义文章名字 -->
+                <h1 style="text-align: center">Archived</h1>
+                <p style="text-align: center">「 32 」</p>
+                <ul class="timeline timeline-centered">
+                  <th:block th:each="archive : ${archives.items}">
+                    <th:block th:each="month : ${archive.months}">
+                      <li class="timeline-item period">
+                        <div class="timeline-info"></div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                          <h2 class="timeline-title" th:text="|${archive.year} - ${month.month}|"></h2>
+                        </div>
+                      </li>
+                      <li class="timeline-item" th:each="post : ${month.posts}">
+                        <div class="timeline-info">
+                          <span
+                            class="gradient-text"
+                            th:text="${#dates.format(post.spec.publishTime, 'M月dd, YYYY')}"
+                          ></span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                          <a
+                            class="timeline-title"
+                            target="_self"
+                            th:text="${post.spec.title}"
+                            th:href="${post.status.permalink}"
+                          ></a>
+                          <p th:text="${post.status.excerpt}"></p>
+                        </div>
+                      </li>
+                    </th:block>
+                  </th:block>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </th:block>
+</html>

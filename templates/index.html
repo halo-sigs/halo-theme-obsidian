@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{layout :: html(title = ${site.title}, content = ~{::content}, head = null)}"
+>
+  <th:block th:fragment="content">
+    <th:block th:replace="~{_partial/menu}"></th:block>
+    <div id="container">
+      <th:block th:replace="~{_partial/screen}"></th:block>
+      <div id="primary">
+        <th:block th:replace="~{_partial/list :: list(posts = ${posts.items})}"></th:block>
+      </div>
+      <!-- <% if (page.total > 1 && page.next_link){ %>
+      <div id="pager">
+        <a
+          href="<%- url_for(page.next_link) %>"
+          class="more"
+          data-loading="<%= __('loading') %>"
+          data-load-more="<%= __('load_more') %>"
+          ><%= __('load_more') %></a
+        >
+      </div>
+      <% } %> -->
+    </div>
+    <div id="preview"></div>
+  </th:block>
+</html>

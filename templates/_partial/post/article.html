@@ -1,0 +1,113 @@
+<th:block th:fragment="article(post)">
+  <div class="article-header-wrapper">
+    <div class="article-header">
+      <div
+        class="article-cover animated fadeIn"
+        style="animation-delay: 600ms; animation-duration: 1.2s"
+        th:styleappend="|background-image: 
+            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+            url('${post.spec.cover}')|"
+      ></div>
+      <div class="else">
+        <p class="animated fadeInDown">
+          <th:block th:if="${#lists.size(post.categories)} gt 0">
+            <a th:href="${post.categories[0].status.permalink}">
+              <b>「</b>
+              <th:block th:text="${post.categories[0].spec.displayName}"></th:block>
+              <b> 」</b>
+            </a>
+          </th:block>
+          <th:block th:if="${#lists.size(post.categories)} eq 0">
+            <a href="javascript:;"><b>「 </b>
+          <th:block th:text="${theme.config.display.articleCategoryName}"></th:block>
+              
+              <b> 」</b></a>
+          </th:block>
+          <th:block>
+            <span th:text="${#dates.format(post.spec.publishTime, 'yyyy-MM-dd')}"></span>
+          </th:block>
+        </p>
+        <h3 class="post-title animated fadeInDown">
+          <a th:href="${post.status.permalink}" th:text="${post.spec.title}"></a>
+        </h3>
+        <p class="post-count animated fadeInDown">
+          <span id="busuanzi_container_page_pv" style="display: flex">
+            <b class="iconfont icon-read"></b> <i>阅读次数</i>
+            <span id="busuanzi_value_page_pv" th:text="${post.stats.visit}"></span>
+          </span>
+          <!-- 是否加 -->
+          <!-- <span id="busuanzi_container_page_pv" style="display: flex">
+            <b class="iconfont icon-read"></b> <i>评论数</i>
+            <span id="busuanzi_value_page_pv" th:text="${post.stats.comment}"></span>
+          </span> -->
+        </p>
+        <ul class="animated fadeInDown post-tags-list" itemprop="keywords">
+          <li class="animated fadeInDown post-tags-list-item" th:each="tag : ${post.tags}">
+            <a
+              class="animated fadeInDown post-tags-list-link"
+              th:href="${tag.status.permalink}"
+              rel="tag"
+              th:text="${tag.spec.displayName}"
+            ></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="screen-gradient-after">
+    <div class="screen-gradient-content">
+        <div class="screen-gradient-content-inside">
+            <div class="bold-underline-links screen-gradient-sponsor">
+                <p>
+                    <span class="animated fadeIn delay-1s" th:text="${poat.status.excerpt}"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+  </div>
+  
+  <div class="article">
+    <div class="main">
+      <div class="content markdown animated fadeIn">
+        <div th:utext="${post.content.content}" id="content"> </div>
+      </div>
+      <div class="sidebar">
+        <div class="box animated fadeInRight">
+          <div class="subbox">
+            <img
+              th:src="${theme.config.userInfo.avactor}"
+              height="300" width="300">
+            <p th:text="${theme.config.userInfo.userName}"></p>
+            <span th:text="${theme.config.userInfo.introduction}">Think like an artist, develop like an artisan</span>
+            <dl>
+              <dd th:each="c : ${theme.config.userInfo.options}"><a th:href="${c.url}" target="_blank"><span
+                class="iconify" th:attr="data-icon=|${c.icon}|"></span></a></dd>
+            </dl>
+          </div>
+          <ul th:with="stats = ${siteStatsFinder.getStats()}">
+            <li><a href="/"><span th:text="${stats.post}"></span>
+                <p>文章</p>
+              </a></li>
+            <li><a href="/categories"><span th:text="${stats.category}"></span>
+                <p>分类</p>
+              </a></li>
+            <li><a href="/"><span th:text="${stats.visit}"></span>
+                <p>访问</p>
+              </a></li>
+          </ul>
+        </div>
+        <div class="box sticky animated fadeInRight faster t">
+          <div id="toc" class="subbox">
+            <h4>目录</h4>
+            <div class="toc mt-2 max-h-64 overflow-auto"></div>
+          </div>
+        </div>
+        <script>
+          main.generateToc();
+        </script>
+      </div>
+    </div>
+  </div>
+  
+</th:block>

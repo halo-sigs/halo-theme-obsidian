@@ -1,0 +1,95 @@
+apiVersion: v1alpha1
+kind: Setting
+metadata:
+  name: halo-theme-obsidian-setting
+spec:
+  forms:
+    - group: display
+      label: 默认设置
+      formSchema:
+        - $formkit: text
+          name: categoryName
+          label: 默认分类名字（用于分类页面的顶部显示名字）
+          value: "Categories"
+        - $formkit: text
+          name: tagName
+          label: 默认标签名字（用于标签页面的顶部显示名字）
+          value: "Tags"
+        - $formkit: text
+          name: articleCategoryName
+          label: 默认分类设置（用于当文章无分类时，的默认显示分类）
+          value: "Tags"
+        - $formkit: attachment
+          accepts:
+            - "image/*"
+          name: coverImg
+          label: 当文章没有图片时，默认图片
+          value: ""
+    - group: userInfo
+      label: 作者信息配置
+      formSchema:
+        - $formkit: text
+          name: userName
+          label: 名字
+          value: "halo"
+        - $formkit: attachment
+          name: avactor
+          label: 头像
+          value: ""
+        - $formkit: text
+          name: introduction
+          label: 自我介绍
+          value: ""
+        - $formkit: repeater
+          name: options
+          label: 联系途径
+          value: []
+          children:
+            - $formkit: select
+              name: icon
+              label: 图标
+              options:
+                - label: 电子邮箱
+                  value: mingcute:mail-line
+                - label: 微信
+                  value: ic:outline-wechat
+                - label: 腾讯 QQ
+                  value: icon-park-solid:tencent-qq
+                - label: 新浪微博
+                  value: simple-icons:sinaweibo
+                - label: 知乎
+                  value: ri:zhihu-fill
+                - label: 豆瓣
+                  value: ri:douban-fill
+                - label: 哔哩哔哩
+                  value: ri:bilibili-line
+                - label: 抖音 / TikTok
+                  value: ph:tiktok-logo
+                - label: Telegram
+                  value: ic:round-telegram
+                - label: Facebook
+                  value: ic:baseline-facebook
+                - label: Instagram
+                  value: ph:instagram-logo
+                - label: LinkedIn
+                  value: ph:linkedin-logo
+                - label: Twitter
+                  value: ph:twitter-logo
+                - label: Slack
+                  value: mdi:slack
+                - label: Discord
+                  value: ic:baseline-discord
+                - label: YouTube
+                  value: iconoir:youtube
+                - label: Steam
+                  value: mdi:steam
+                - label: GitHub
+                  value: tabler:brand-github
+                - label: GitLab
+                  value: ph:gitlab-logo-simple
+                - label: RSS
+                  value: ph:rss-simple
+            - $formkit: text
+              name: url
+              label: 联系账号
+              value: ""
