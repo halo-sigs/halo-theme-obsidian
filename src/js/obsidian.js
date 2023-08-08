@@ -302,11 +302,14 @@ var Obsidian = {
     id.style.top = (_height - parseInt(id.style.height)) / 2 + "px";
   },
   initArticleJs: function () {
-    Obsidian.setCodeRowWithLang();
+    // Obsidian.setCodeRowWithLang();
     Obsidian.tocSpy(200);
     buildImgCaption();
     utiliseBgColor("article");
     Obsidian.initialShare();
+    setTimeout(() => {
+      location.reload();
+    }, 0);
   },
   setCodeRowWithLang: function () {
     // Get the programming type of the current code block
@@ -1229,7 +1232,7 @@ $(function () {
   if ($(".article").length) {
     Obsidian.tocSpy(200);
     buildImgCaption();
-    Obsidian.initialShare();
+    // Obsidian.initialShare();
   }
 
   // Watch window history changes

@@ -73,7 +73,9 @@
     <div class="main">
       <div class="content markdown animated fadeIn">
         <div th:utext="${post.content.content}" id="content"> </div>
-        <halo:comment group="content.halo.run" kind="Post" th:attr="name=${post.metadata.name}" colorScheme="'light'" />
+        <div th:if="${pluginFinder.available('PluginCommentWidget')}">
+          <halo:comment group="content.halo.run" kind="Post" th:attr="name=${post.metadata.name}" colorScheme="'light'" />
+        </div>
 
       </div>
       <div class="sidebar">
