@@ -13,5 +13,11 @@ spec:
   repo: https://github.com/halo-dev/theme-vite-starter.git
   settingName: "halo-theme-obsidian-setting"
   configMapName: "halo-theme-obsidian-configMap"
+  customTemplates:
+    page:
+      - name: 关于
+        description: 关于页面的文章
+        screenshot:
+        file: about.html
   version: 1.0.0
   require: ">=2.0.0"
