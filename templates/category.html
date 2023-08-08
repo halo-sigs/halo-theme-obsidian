@@ -9,6 +9,9 @@
       <th:block th:replace="~{_partial/screen}"></th:block>
       <div id="primary">
         <th:block th:replace="~{_partial/list :: list(posts = ${posts})}"></th:block>
+        <div id="pager" th:if="${posts.hasNext}">
+          <a th:href="${posts.nextUrl}" class="more" data-loading="加载中" data-load-more="加载更多">加载更多</a>
+        </div>
       </div>
     </div>
     <div id="preview"></div>
