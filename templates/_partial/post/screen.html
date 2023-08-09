@@ -1,0 +1,23 @@
+<div id="header">
+  <div th:with="menu = ${menuFinder.getPrimary()}">
+    <div class="logo animated fadeInDown">
+      <img th:src="${site.logo}" alt="" />
+      <!-- 换成什么南 -->
+      <a class="image-logo" href="/" th:text="${site.title}"></a>
+    </div>
+    <ul id="menu-menu" class="menu text-menu" th:with="menuItems = ${menu.menuItems}">
+      <li
+        th:each="menuItem : ${menuItems}"
+        class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page"
+      >
+        <a
+          th:href="@{${menuItem.status.href}}"
+          th:text="${menuItem.status.displayName}"
+          th:target="${menuItem.spec.target?.value}"
+        >
+        </a>
+      </li>
+    </ul>
+    <div class="iconfont icon-menu switchmenu gradient-text animated fadeInDown"></div>
+  </div>
+</div>

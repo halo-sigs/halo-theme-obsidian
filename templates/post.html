@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{layout :: html(title = |${post.spec.title} - ${site.title}|,  content = ~{::content}, head = null)}"
+>
+  <th:block th:fragment="content">
+    <div id="single">
+      <th:block th:replace="~{_partial/post/header}"></th:block>
+      <div class="section">
+        <th:block th:replace="~{_partial/post/article :: article(post = ${post})}"></th:block>
+      </div>
+    </div>
+  </th:block>
+</html>

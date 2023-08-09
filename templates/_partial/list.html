@@ -1,0 +1,7 @@
+<th:block th:fragment="list (posts)">
+  <th:block th:each="post : ${posts}">
+    <div class="post" id="post">
+      <th:block th:replace="~{_partial/post/item :: item(post = ${post})}"></th:block>
+    </div>
+  </th:block>
+</th:block>

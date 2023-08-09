@@ -1,0 +1,51 @@
+<th:block th:fragment="item(post)">
+  <div
+    class="post-cover animated fadeIn"
+    th:styleappend="|background-image: radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),url('${#strings.isEmpty(post.spec.cover)? theme.config.display.coverImg: post.spec.cover}')|"
+  ></div>
+  <div class="else">
+    <p class="animated fadeInDown">
+      <th:block th:if="${#lists.size(post.categories)} gt 0">
+        <a th:href="${post.categories[0].status.permalink}">
+          <b>「</b>
+          <th:block th:text="${post.categories[0].spec.displayName}"></th:block>
+          <b> 」</b>
+        </a>
+      </th:block>
+      <th:block th:if="${#lists.size(post.categories)} eq 0">
+        <a href="javascript:;"
+          ><b>「 </b>
+          <th:block th:text="${theme.config.display.articleCategoryName}"></th:block>
+          <b> 」</b></a
+        >
+      </th:block>
+      <span th:text="${#dates.format(post.spec.publishTime, 'M月dd，yyyy')}"></span>
+    </p>
+    <h3 class="post-title animated fadeInDown">
+      <a
+        th:href="${post.status.permalink}"
+        th:attr="title=#{post.spec.title}"
+        class="posttitle"
+        th:text="${post.spec.title}"
+      ></a>
+    </h3>
+
+    <ul class="animated fadeInDown post-tags-list" itemprop="keywords">
+      <li class="animated fadeInDown post-tags-list-item" th:each="tag : ${post.tags}">
+        <a
+          class="animated fadeInDown post-tags-list-link"
+          th:href="${tag.status.permalink}"
+          rel="tag"
+          th:text="${tag.spec.displayName}"
+        ></a>
+      </li>
+    </ul>
+    <div class="md-content animated fadeIn">
+      <p th:utext="${post.status.excerpt}"></p>
+      <span class="read-more"
+        ><a th:href="${post.status.permalink}" title="查看全文" class="posttitle">查看全文</a>
+        <b class="iconfont icon-arrow-right- gradient-text"></b
+      ></span>
+    </div>
+  </div>
+</th:block>

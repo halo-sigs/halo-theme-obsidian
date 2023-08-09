@@ -1,0 +1,17 @@
+<div class="nav">
+  <div th:with="menu = ${menuFinder.getPrimary()}">
+    <ul id="menu-menu" class="menu" th:with="menuItems = ${menu.menuItems}">
+      <li
+        class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page"
+        th:each="menuItem : ${menuItems}"
+      >
+        <a
+          th:href="@{${menuItem.status.href}}"
+          th:text="${menuItem.status.displayName}"
+          th:target="${menuItem.spec.target?.value}"
+        >
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

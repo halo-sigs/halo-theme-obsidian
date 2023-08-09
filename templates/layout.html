@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" th:fragment="html (title,content,head)">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2" />
+    <title th:text="${title}"></title>
+    <link rel="stylesheet" th:href="@{/assets/dist/style.css?v={version}(version=${theme.spec.version})}" />
+    <script th:src="@{/assets/dist/main.iife.js?v={version}(version=${theme.spec.version})}"></script>
+  </head>
+  <body class="loading">
+    <div class="loader">
+      <div class="la-ball-atom la-2x">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <span id="config-title" style="display: none" th:text="${title}"></span>
+    <div id="loader"></div>
+    <th:block th:replace="${content}"></th:block>
+    <div id="back-to-top" class="animated fadeIn faster">
+      <div class="flow"></div>
+      <span class="percentage animated fadeIn faster">0%</span>
+      <span class="iconfont icon-top02 animated fadeIn faster"></span>
+    </div>
+    <footer>
+      <p class="copyright" id="copyright">
+        © <span th:text="${#dates.format(new java.util.Date().getTime(), 'yyyy')}"></span>
+        <span class="gradient-text" th:text="${site.title}"> </span>. Powered by
+        <a href="http://halo.run/" title="halo" target="_blank" rel="noopener">Halo</a>
+        Theme
+        <span class="gradient-text">
+          <a href="https://github.com/halo-sigs/halo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener"
+            >Obsidian</a
+          >
+        </span>
+        <small><a href="/" title="v1.0.0" target="_blank" rel="noopener">v1.0.0</a></small>
+      </p>
+    </footer>
+  </body>
+</html>
