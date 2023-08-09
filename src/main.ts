@@ -29,6 +29,7 @@ export function generateToc() {
     headingSelector: "h1, h2, h3, h4",
     linkClass: "toc-link",
     listItemClass: "toc-item",
+    // @ts-ignore
     activeListItemClass: "active",
   });
 }
