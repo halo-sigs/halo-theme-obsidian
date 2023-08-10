@@ -40,7 +40,7 @@
                             class="timeline-title"
                             target="_self"
                             th:text="${post.spec.title}"
-                            th:attr="title=${post.spec.title}"
+                            th:title="${post.spec.title}"
                             th:href="${post.status.permalink}"
                           ></a>
                           <p th:text="${post.status.excerpt}"></p>

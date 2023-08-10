@@ -24,7 +24,7 @@
     <h3 class="post-title animated fadeInDown">
       <a
         th:href="${post.status.permalink}"
-        th:attr="title=${post.spec.title}"
+        th:title="${post.spec.title}"
         class="posttitle"
         th:text="${post.spec.title}"
       ></a>
