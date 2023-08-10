@@ -9,7 +9,9 @@ module.exports = {
     "prettier",
   ],
   env: {
+    browser: true,
     node: true,
+    jquery: true,
   },
   rules: {
     "@typescript-eslint/ban-ts-comment": "error",
