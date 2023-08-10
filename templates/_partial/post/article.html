@@ -28,7 +28,7 @@
           </th:block>
         </p>
         <h3 class="post-title animated fadeInDown">
-          <a th:href="${post.status.permalink}" th:text="${post.spec.title}"></a>
+          <a th:href="${post.status.permalink}" th:text="${post.spec.title}" th:attr="title=${post.spec.title}"></a>
         </h3>
         <p class="post-count animated fadeInDown">
           <span id="busuanzi_container_page_pv" style="display: flex">
@@ -85,7 +85,7 @@
               th:src="${theme.config.userInfo.avactor}"
               height="300" width="300">
             <p th:text="${theme.config.userInfo.userName}"></p>
-            <span th:text="${theme.config.userInfo.introduction}">Think like an artist, develop like an artisan</span>
+            <span th:text="${theme.config.userInfo.introduction}"></span>
             <dl>
               <dd th:each="c : ${theme.config.userInfo.options}"><a th:href="${c.url}" target="_blank"><span
                 class="iconify" th:attr="data-icon=|${c.icon}|"></span></a></dd>
