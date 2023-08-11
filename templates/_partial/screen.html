@@ -1,9 +1,9 @@
 <div id="header">
   <div th:with="menu = ${menuFinder.getPrimary()}">
     <div class="logo animated fadeInDown">
-      <img th:src="${site.logo}" alt="" />
-      <!-- 换成什么南 -->
-      <!-- <a class="image-logo" href="/"></a> -->
+      <th:block th:if="${site.logo}">
+        <img th:src="${site.logo}" alt="" />
+      </th:block>
     </div>
     <ul id="menu-menu" class="menu text-menu" th:with="menuItems = ${menu.menuItems}">
       <li
@@ -14,6 +14,7 @@
           th:href="@{${menuItem.status.href}}"
           th:text="${menuItem.status.displayName}"
           th:target="${menuItem.spec.target?.value}"
+          class="menu-link"
         >
         </a>
       </li>

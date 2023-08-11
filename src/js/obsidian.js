@@ -163,18 +163,31 @@ var Obsidian = {
         location.href = url;
         return;
       }
+      const tempDocument = new DOMParser().parseFromString(data, "text/html");
+      const singleElement = tempDocument.getElementById("single");
       switch (flag) {
         case "push":
           history.pushState(state, title, url);
-          $("#preview").html($(data).filter("#single"));
           break;
         case "replace":
           history.replaceState(state, title, url);
-          $("#preview").html($(data).filter("#single"));
           break;
       }
       document.title = title;
-      $("#preview").html($(data).filter("#single"));
+      const loadedScripts = [];
+      const originalAddEventListener = EventTarget.prototype.addEventListener;
+      EventTarget.prototype.addEventListener = function (type, listener, options) {
+        if (type === "DOMContentLoaded") {
+          if (listener) {
+            loadedScripts.push(listener);
+          }
+        }
+        originalAddEventListener.call(this, type, listener, options);
+      };
+      $("#preview").html(singleElement);
+      loadedScripts.forEach((script) => {
+        script();
+      });
       switch (flag) {
         case "push":
           Obsidian.preview();
@@ -307,9 +320,6 @@ var Obsidian = {
     buildImgCaption();
     utiliseBgColor("article");
     Obsidian.initialShare();
-    setTimeout(() => {
-      location.reload();
-    }, 0);
   },
   setCodeRowWithLang: function () {
     // Get the programming type of the current code block
@@ -1062,6 +1072,10 @@ $(function () {
           location.href = $(".icon-home").data("url");
         }
         return false;
+      case tag.indexOf("p-href") != -1:
+          $(".toc").fadeOut(100);
+          location.href = $(".p-href").attr("href");
+          return false;
       // qrcode
       case tag.indexOf("icon-QRcode-o") != -1:
         if ($(".icon-scan").hasClass("tg")) {

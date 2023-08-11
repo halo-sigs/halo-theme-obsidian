@@ -2,8 +2,12 @@
 <div id="top" style="display: block">
   <div class="bar" style="width: 0"></div>
   <div class="navigation animated fadeIn fast delay-1s">
-    <img id="home-icon" class="icon-home" th:src="${site.logo}" alt="" data-url="/" />
-    <h3 class="subtitle" th:text="${site.title}"></h3>
+    <th:block th:unless="${#strings.isEmpty(site.logo)}">
+      <img id="home-icon" class="icon-home" th:src="${site.logo}" alt="" data-url="/" />
+    </th:block>
+    <h3 class="subtitle">
+      <a class="p-href" th:text="${site.title}" href="/"></a>
+    </h3>
     <!-- <div class="social">
       <div>
         <div class="share">
