@@ -177,7 +177,6 @@ var Obsidian = {
       const loadedScripts = [];
       const originalAddEventListener = EventTarget.prototype.addEventListener;
       EventTarget.prototype.addEventListener = function (type, listener, options) {
-        console.log(type);
         if (type === "DOMContentLoaded") {
           if (listener) {
             loadedScripts.push(listener);
